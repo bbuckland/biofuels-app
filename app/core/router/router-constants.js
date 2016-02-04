@@ -3,5 +3,7 @@
 angular.module('biofuels.core.router.constants', [])
   .constant(
   'ROUTES', {
-    'HOME': 'home'
+    'HOME': 'home',
+    'LOGIN': 'login',
+    'CREATE_SAMPLE': 'createSample'
   });

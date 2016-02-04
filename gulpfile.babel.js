@@ -7,9 +7,45 @@ import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+//var paths = {
+//  scripts: 'app/**/*.js'
+//};
+//
+//var pipes = {};
+//
+//pipes.orderedAppScripts = function () {
+//  return $.angularFilesort();
+//};
+//
+//pipes.minifiedFileName = function () {
+//  return $.rename(function (path) {
+//    path.extname = '.min' + path.extname;
+//  });
+//};
+//
+//pipes.validatedAppScripts = function () {
+//  return gulp.src(path.scripts)
+//    .pipe($.jshint())
+//    .pipe($.jshint.reporter('jshint-stylish'));
+//};
+//
+//pipes.buildAppScriptsProd = function () {
+//  var scriptedPartials = pipes.scriptedPartials();
+//  var validatedAppScripts = pipes.validatedAppScripts();
+//
+//
+//  return es.merge(scriptedPartials, validatedAppScripts)
+//    .pipe(pipes.orderedAppScripts)
+//    .pipe($.sourcemaps.init())
+//      .pipe($.concat('app.min.js'))
+//      .pipe($.uglify())
+//    .pipe($.sourcemaps.write())
+//    .pipe(gulp.dest(paths.distScriptsProd));
+//};
+
 
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss')
+  return gulp.src('app/scss/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
@@ -19,7 +55,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/scss'))
     .pipe(reload({stream: true}));
 });
 
@@ -46,7 +82,7 @@ gulp.task('html', ['styles'], () => {
 
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js', $.uglify({mangle:false})))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
@@ -108,7 +144,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/scss/**/*.scss', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
@@ -142,11 +178,11 @@ gulp.task('serve:test', () => {
 
 // inject bower components
 gulp.task('wiredep', () => {
-  gulp.src('app/styles/*.scss')
+  gulp.src('app/scss/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
-    .pipe(gulp.dest('app/styles'));
+    .pipe(gulp.dest('app/scss'));
 
   gulp.src('app/*.html')
     .pipe(wiredep({
@@ -155,7 +191,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

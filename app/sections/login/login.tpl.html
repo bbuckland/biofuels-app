@@ -1,0 +1,64 @@
+<div layout="row" class='login__container' layout-align="center center">
+  <div flex-gt-xs="50" flex-gt-sm="40" flex-gt-md="30">
+  <md-card>
+    <img ng-src="images/login-header-3.jpg" class="md-card-image" alt="image caption">
+    <md-tabs md-selected="data.selectedIndex" md-center-tabs md-dynamic-height md-stretch-tabs="always">
+      <md-tab id="tab1">
+        <md-tab-label>Login</md-tab-label>
+        <md-tab-body>
+          <md-content layout-padding>
+            <div>
+              <form name="userForm">
+                <md-input-container class="md-block">
+                  <label>Email</label>
+                  <input ng-model="loginCtrl.userLogin.email">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Password</label>
+                  <input type="password" ng-model="loginCtrl.userLogin.password">
+                </md-input-container>
+              </form>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab3">
+        <md-tab-label>Register</md-tab-label>
+        <md-tab-body>
+          <md-content layout-padding>
+            <div>
+              <form name="userForm">
+                <md-input-container class="md-block">
+                  <label>Full Name</label>
+                  <input ng-model="loginCtrl.userRegister.fullName" name="fullName" required md-maxlength="40">
+                  <div ng-messages="userForm.fullName.$error">
+                    <ng-message when="['required', 'maxlength']">This is required!</ng-message>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Liberty Email</label>
+                  <input type="email" ng-model="loginCtrl.userRegister.email" name="userEmail" ng-pattern="/^[\w.]+@liberty.edu$/" required>
+                  <div ng-messages="userForm.userEmail.$error" ng-messages-multiple >
+                    <div ng-message="required">This is required!</div>
+                    <div ng-message="pattern">You must have a liberty email</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Password</label>
+                  <input type="password" ng-model="loginCtrl.userRegister.password">
+                </md-input-container>
+              </form>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-fab" aria-label="Proceed" ng-click="ctrl.onClick()">
+        <md-icon class="material-icons">keyboard_arrow_right</md-icon>
+      </md-button>
+    </md-card-actions>
+
+  </md-card>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>Biofuels - Create a Sample</span>
+    </h2>
+
+    <md-button class="md-raised" aria-label="Learn More">
+      Home
+    </md-button>
+    <md-button class="md-raised" aria-label="Learn More">
+      New GC Vial
+    </md-button>
+    <md-button class="md-raised" aria-label="Learn More">
+      New Reaction Vial
+    </md-button>
+    <span flex></span>
+    <md-button class="md-raised" aria-label="Learn More">
+      Logout
+    </md-button>
+  </div>
+</md-toolbar>
+<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+<div layout="row" layout-align="center center">
+  <div flex-gt-xs="80">
+    <md-card>
+      <md-tabs md-selected="data.selectedIndex" md-center-tabs md-dynamic-height md-stretch-tabs="always">
+        <md-tab id="tab1">
+          <md-tab-label>Sample Header</md-tab-label>
+          <md-tab-body>
+            <div layout="column" ng-cloak class="md-inline-form">
+              <md-content layout-padding>
+                <div>
+                  <form name="userForm">
+                    <div layout-gt-xs="row">
+                      <md-input-container class="md-block" flex-gt-xs>
+                        <label>GC Sample Name</label>
+                        <input ng-model="user.company">
+                      </md-input-container>
+                      <md-datepicker ng-model="user.submissionDate" md-placeholder="Analysis Date">
+                      </md-datepicker>
+                      <md-datepicker ng-model="user.submissionDate" md-placeholder="AFBM Run Date">
+                      </md-datepicker>
+                    </div>
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Sample Name</label>
+                        <input ng-model="user.firstName">
+                      </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Sample Purpose</label>
+                        <md-select ng-model="user.state">
+                          <md-option ng-repeat="purpose in ctrl.purposes" value="{{state.abbrev}}">
+                            Purpose
+                          </md-option>
+                        </md-select>
+                      </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Sample Container Type</label>
+                        <md-select ng-model="user.state">
+                          <md-option ng-repeat="purpose in ctrl.purposes" value="{{state.abbrev}}">
+                            Purpose
+                          </md-option>
+                        </md-select>
+                      </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                      <label>Algae Color</label>
+                      <input ng-model="user.address">
+                    </md-input-container>
+                    <md-input-container md-no-float class="md-block">
+                      <label>Color After H<sub>2</sub>O</label>
+                      <input ng-model="user.address2">
+                    </md-input-container>
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>MeOH Lost</label>
+                        <input ng-model="user.city">
+                      </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Sample Weight</label>
+                        <input name="postalCode" ng-model="user.postalCode" required md-maxlength="5">
+                      </md-input-container>
+                    </div>
+                  </form>
+                </div>
+              </md-content>
+            </div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab id="tab3">
+          <md-tab-label>Sample Details</md-tab-label>
+          <md-tab-body>
+            <md-content layout-padding>
+              <div>
+                <form name="userForm">
+                  <md-input-container class="md-block">
+                    <label>Full Name</label>
+                    <input ng-model="loginCtrl.userRegister.fullName" name="fullName" required md-maxlength="40">
+                    <div ng-messages="userForm.fullName.$error">
+                      <ng-message when="['required', 'maxlength']">This is required!</ng-message>
+                    </div>
+                  </md-input-container>
+                  <md-input-container class="md-block">
+                    <label>Liberty Email</label>
+                    <input type="email" ng-model="loginCtrl.userRegister.email" name="userEmail" ng-pattern="/^[\w.]+@liberty.edu$/" required>
+                    <div ng-messages="userForm.userEmail.$error" ng-messages-multiple>
+                      <div ng-message="required">This is required!</div>
+                      <div ng-message="pattern">You must have a liberty email</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" ng-model="loginCtrl.userRegister.password">
+                  </md-input-container>
+                </form>
+              </div>
+            </md-content>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </md-card>
+  </div>
+</div>
+

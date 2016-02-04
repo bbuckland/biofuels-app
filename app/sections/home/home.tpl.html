@@ -1,3 +1,59 @@
-<div>
-  {{ctrl.hello}}
-</div>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>Biofuels - Home</span>
+    </h2>
+
+    <md-button class="md-raised" aria-label="Learn More">
+      New Sample
+    </md-button>
+    <md-button class="md-raised" aria-label="Learn More">
+      New GC Vial
+    </md-button>
+    <md-button class="md-raised" aria-label="Learn More">
+      New Reaction Vial
+    </md-button>
+    <span flex></span>
+    <md-button class="md-raised" aria-label="Learn More">
+      Logout
+    </md-button>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+  <div layout="row" layout-sm="column">
+    <div flex-gt-sm="45">
+      <canvas id="pie" class="chart chart-pie"
+              chart-data="ctrl.data" chart-labels="ctrl.labels">
+      </canvas>
+    </div>
+    <div flex-gt-sm="55">
+      <canvas id="line1" class="chart chart-line" chart-data="ctrl.lineData"
+              chart-labels="ctrl.lineLabels" chart-legend="true" chart-series="ctrl.lineSeries"
+              chart-click="onClick" >
+      </canvas>
+    </div>
+    <div flex-gt-sm="45">
+      <canvas id="pie2" class="chart chart-pie"
+              chart-data="ctrl.data" chart-labels="ctrl.labels">
+      </canvas>
+    </div>
+  </div>
+  <div layout="row">
+    <div flex="35">
+      <canvas id="line" class="chart chart-line" chart-data="ctrl.lineData"
+              chart-labels="ctrl.lineLabels" chart-legend="true" chart-series="ctrl.lineSeries"
+              chart-click="onClick" >
+      </canvas>
+    </div>
+    <div flex>
+      <canvas id="radar" class="chart chart-radar"
+              chart-data="ctrl.radarData" chart-labels="ctrl.radarLabels">
+      </canvas>
+    </div>
+    <div flex>
+      <canvas id="bar" class="chart chart-bar"
+              chart-data="ctrl.barData" chart-labels="ctrl.barLabels" chart-series="ctrl.barSeries">
+      </canvas>
+    </div>
+  </div>
+</md-content>
