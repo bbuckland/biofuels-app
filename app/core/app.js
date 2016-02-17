@@ -7,6 +7,7 @@ angular.module('biofuels', [
     'biofuels.sections.home',
     'biofuels.sections.login',
     'biofuels.sections.createSample',
+    'biofuels.sections.createCustomer',
     'chart.js'
   ])
   .config(function($mdThemingProvider) {

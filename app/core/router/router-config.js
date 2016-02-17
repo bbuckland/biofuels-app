@@ -30,6 +30,13 @@ angular.module('biofuels.core.router.config', [
       controller: 'createSampleCtrl as ctrl'
     });
 
+    states.push({
+      name: ROUTES.CREATE_CUSTOMER,
+      url: '/create-customer',
+      templateUrl: 'sections/create-customer/create-customer.tpl.html',
+      controller: 'createCustomerCtrl as ctrl'
+    });
+
     /**
      * UI routes initialization
      */
