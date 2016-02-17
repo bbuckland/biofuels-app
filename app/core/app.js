@@ -3,12 +3,14 @@
 angular.module('biofuels', [
     'ngMaterial',
     'ui.router',
+    'chart.js',
+    'biofuels.core.resource',
     'biofuels.core.router',
-    'biofuels.sections.home',
-    'biofuels.sections.login',
+    'biofuels.core.user',
     'biofuels.sections.createSample',
     'biofuels.sections.createCustomer',
-    'chart.js'
+    'biofuels.sections.home',
+    'biofuels.sections.login'
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
