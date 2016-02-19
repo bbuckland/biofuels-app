@@ -6,7 +6,7 @@ angular.module('biofuels.sections.login.controller', [
   .controller('loginCtrl',
   function ($log) {
     (function (vm) {
-      $log.debug('This is from the login page');
+      $log.debug('This is from the logins page');
       vm.hello = 'Hello World!';
 
       vm.onClick = function () {

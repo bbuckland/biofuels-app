@@ -2,7 +2,8 @@
 
 angular.module('biofuels.core.router.config', [
   'biofuels.core.router.constants',
-  'ui.router'
+  'ui.router',
+  'biofuels.templates'
 ])
   .config(
   function routerConfig(ROUTES, $stateProvider, $urlRouterProvider) {
