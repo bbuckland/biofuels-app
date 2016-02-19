@@ -1,123 +1,118 @@
 <md-toolbar>
-  <div class="md-toolbar-tools">
-    <h2>
-      <span>Biofuels - Create a Sample</span>
-    </h2>
+    <div class="md-toolbar-tools">
+        <h2>
+            <span>Biofuels - Create a Customer</span>
+        </h2>
 
-    <md-button class="md-raised" aria-label="Learn More">
-      Home
-    </md-button>
-    <md-button class="md-raised" aria-label="Learn More">
-      New GC Vial
-    </md-button>
-    <md-button class="md-raised" aria-label="Learn More">
-      New Reaction Vial
-    </md-button>
-    <span flex></span>
-    <md-button class="md-raised" aria-label="Learn More">
-      Logout
-    </md-button>
-  </div>
+        <md-button class="md-raised" aria-label="Learn More">
+            Home
+        </md-button>
+        <md-button class="md-raised" aria-label="Learn More">
+            New GC Vial
+        </md-button>
+        <md-button class="md-raised" aria-label="Learn More">
+            New Reaction Vial
+        </md-button>
+        <span flex></span>
+        <md-button class="md-raised" aria-label="Learn More">
+            Logout
+        </md-button>
+    </div>
 </md-toolbar>
 <div layout="row" layout-align="center center">
-  <div flex-gt-xs="80">
-    <md-card>
-      <md-tabs md-selected="data.selectedIndex" md-center-tabs md-dynamic-height md-stretch-tabs="always">
-        <md-tab id="tab1">
-          <md-tab-label>Sample Header</md-tab-label>
-          <md-tab-body>
+    <div flex-xs="90" flex-sm="75" flex-md="75" flex-gt-md="50">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Create Customer</span>
+                </md-card-title-text>
+            </md-card-title>
             <div layout="column" ng-cloak class="md-inline-form">
-              <md-content layout-padding>
-                <div>
-                  <form name="userForm">
-                    <div layout-gt-xs="row">
-                      <md-input-container class="md-block" flex-gt-xs>
-                        <label>GC Sample Name</label>
-                        <input ng-model="user.company">
-                      </md-input-container>
-                      <md-datepicker ng-model="user.submissionDate" md-placeholder="Analysis Date">
-                      </md-datepicker>
-                      <md-datepicker ng-model="user.submissionDate" md-placeholder="AFBM Run Date">
-                      </md-datepicker>
+                <md-content layout-padding>
+                    <div>
+                        <form name="userForm">
+                            <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label>Customer Name</label>
+                                    <input ng-model="ctrl.customerData.name">
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Code</label>
+                                    <input ng-model ="ctrl.customerData.code" required md-maxlength="4">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label>Contact Name #1</label>
+                                    <input ng-model="ctrl.customerData.contactName1">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label>Contact Name #2</label>
+                                    <input ng-model="ctrl.customerData.contactName2">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-xs="row">
+                                <md-input-container class"md-block" flex-gt-xs>
+                                <label>Name for Billing</label>
+                                <input ng-model="ctrl.customerData.billingName">
+                                </md-input-container>
+                            </div>
+                            <div>
+                                <md-input-container class="md-block">
+                                    <label>Ship to Address</label>
+                                    <input ng-model="ctrl.customerData.address">
+                                </md-input-container>
+                                <md-input-container md-no-float class="md-block">
+                                    <input ng-model="ctrl.customerData.address2" placeholder="Address 2">
+                                </md-input-container>
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>City</label>
+                                        <input ng-model="ctrl.customerData.city">
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>State</label>
+                                        <md-select ng-model="ctrl.customerData.state">
+                                            <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+                                                {{state.abbrev}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Postal Code</label>
+                                        <input name="postalCode" ng-model="ctrl.customerData.postalCode" required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                                        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+                                            <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                                            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                                                code.
+                                            </div>
+                                            <div ng-message="md-maxlength" class="my-message">
+                                                Don't use the long version silly...we don't need to be that specific.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout-gt-xs="row">
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label>Email</label>
+                                        <input ng-model="ctrl.customerData.email">
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label>Phone Number</label>
+                                        <input ng-model="ctrl.customerData.phoneNumber">
+                                    </md-input-container>
+                                </div>
+                                <div layout-gt-xs="row">
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label>Purchase Order Number</label>
+                                        <input ng-model="ctrl.customerData.PONumber">
+                                    </md-input-container>
+                                </div>
+                        </form>
                     </div>
-                    <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm>
-                        <label>Sample Name</label>
-                        <input ng-model="user.firstName">
-                      </md-input-container>
-                      <md-input-container class="md-block" flex-gt-sm>
-                        <label>Sample Purpose</label>
-                        <md-select ng-model="user.state">
-                          <md-option ng-repeat="purpose in ctrl.purposes" value="{{state.abbrev}}">
-                            Purpose
-                          </md-option>
-                        </md-select>
-                      </md-input-container>
-                      <md-input-container class="md-block" flex-gt-sm>
-                        <label>Sample Container Type</label>
-                        <md-select ng-model="user.state">
-                          <md-option ng-repeat="purpose in ctrl.purposes" value="{{state.abbrev}}">
-                            Purpose
-                          </md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                    <md-input-container class="md-block">
-                      <label>Algae Color</label>
-                      <input ng-model="user.address">
-                    </md-input-container>
-                    <md-input-container md-no-float class="md-block">
-                      <label>Color After H<sub>2</sub>O</label>
-                      <input ng-model="user.address2">
-                    </md-input-container>
-                    <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm>
-                        <label>MeOH Lost</label>
-                        <input ng-model="user.city">
-                      </md-input-container>
-                      <md-input-container class="md-block" flex-gt-sm>
-                        <label>Sample Weight</label>
-                        <input name="postalCode" ng-model="user.postalCode" required md-maxlength="5">
-                      </md-input-container>
-                    </div>
-                  </form>
-                </div>
-              </md-content>
+                </md-content>
             </div>
-          </md-tab-body>
-        </md-tab>
-        <md-tab id="tab3">
-          <md-tab-label>Sample Details</md-tab-label>
-          <md-tab-body>
-            <md-content layout-padding>
-              <div>
-                <form name="userForm">
-                  <md-input-container class="md-block">
-                    <label>Full Name</label>
-                    <input ng-model="loginCtrl.userRegister.fullName" name="fullName" required md-maxlength="40">
-                    <div ng-messages="userForm.fullName.$error">
-                      <ng-message when="['required', 'maxlength']">This is required!</ng-message>
-                    </div>
-                  </md-input-container>
-                  <md-input-container class="md-block">
-                    <label>Liberty Email</label>
-                    <input type="email" ng-model="loginCtrl.userRegister.email" name="userEmail" ng-pattern="/^[\w.]+@liberty.edu$/" required>
-                    <div ng-messages="userForm.userEmail.$error" ng-messages-multiple>
-                      <div ng-message="required">This is required!</div>
-                      <div ng-message="pattern">You must have a liberty email</div>
-                    </div>
-                  </md-input-container>
-                  <md-input-container class="md-block">
-                    <label>Password</label>
-                    <input type="password" ng-model="loginCtrl.userRegister.password">
-                  </md-input-container>
-                </form>
-              </div>
-            </md-content>
-          </md-tab-body>
-        </md-tab>
-      </md-tabs>
-    </md-card>
-  </div>
+        </md-card>
+    </div>
 </div>
 
