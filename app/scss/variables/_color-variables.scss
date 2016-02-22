@@ -1,0 +1,40 @@
+/* Colour Variables
+––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* App Colours */
+$primary-blue                   : #2680d9;
+$medium-primary-blue            : #1463b1;
+$dark-primary-blue              : #0b4580;
+$hover-blue                     : #e4f1ff;
+$light-blue                     : #539ce4;
+$secondary-light-blue           : #91c0ed;
+$gradient-blue                  : #85bbf0;
+
+$light-grey                     : #7f8287;
+$medium-grey                    : #4b4d4e;
+$medium-grey-alt                : #5b5f67;
+$dark-grey                      : #3e4247;
+$darkest-grey                   : #2b2c2d;
+
+$dark-image-upload              : #454646;
+
+$hover-grey                     : #242525;
+
+$white                          : #fff;
+$black                          : #000;
+
+$error                          : #e54444;
+$success                        : #2ea421;
+
+$modal-dark                     : #161717;
+$modal-light                    : #363839;
+
+$header-background              : #f3f5f5;
+$light-header-background        : #fcfcfc;
+$text-grey                      : #8a949d;
+
+$light-toggle-background        : #f4f6f7;
+$dark-toggle-border             : #c2c7c9;
+
+$gradient-background            : radial-gradient($modal-light, $modal-dark);
+$transparent                    : transparent;

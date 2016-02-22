@@ -14,6 +14,7 @@ var paths = {
   scripts: 'app/**/*.js',
   styles: ['./app/**/*.css', './app/**/*.scss'],
   images: './app/images/**/*',
+  icons: ['./app/favicon.ico', './app/apple-touch-icon.png'],
   index: './app/index.html',
   partials: ['app/**/*.html', '!app/index.html'],
   distDev: './dist.dev',
@@ -130,6 +131,16 @@ pipes.processedImagesProd = function() {
     .pipe(gulp.dest(paths.distProd + '/images/'));
 };
 
+pipes.processedIconsDev = function () {
+  return gulp.src(paths.icons)
+    .pipe(gulp.dest(paths.distDev));
+};
+
+pipes.processedIconsProd = function () {
+  return gulp.src(paths.icons)
+    .pipe(gulp.dest(paths.distProd));
+};
+
 pipes.validatedIndex = function() {
   return gulp.src(paths.index)
     .pipe(plugins.htmlhint())
@@ -172,11 +183,11 @@ pipes.builtIndexProd = function() {
 };
 
 pipes.builtAppDev = function() {
-  return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev());
+  return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev(), pipes.processedIconsDev());
 };
 
 pipes.builtAppProd = function() {
-  return es.merge(pipes.builtIndexProd(), pipes.processedImagesProd());
+  return es.merge(pipes.builtIndexProd(), pipes.processedImagesProd(), pipes.processedIconsProd());
 };
 
 // == TASKS ========

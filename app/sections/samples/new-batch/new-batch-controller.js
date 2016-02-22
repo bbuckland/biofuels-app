@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('biofuels.sections.createSample.controller', [])
-  .controller('createSampleCtrl',
+angular.module('biofuels.sections.newBatch.controller', [])
+  .controller('newBatchCtrl',
     function ($log) {
       (function (vm) {
         $log.debug('This is from the home page');

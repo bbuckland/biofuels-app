@@ -6,12 +6,29 @@ angular.module('biofuels.core.resource.service', [
   .factory(
     'resourceService',
     function ($resource) {
-      var url = 'http://localhost:2800';
+      var url = 'http://biofuels-csis471.rhcloud.com';
 
-      var User = $resource(url + '/user');
+      var userAuth = $resource(url + '/api/v1/user/auth', {}, {
+        'save': {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
+
+      var userRegister = $resource(url + '/api/v1/user/create', {}, {
+        'save': {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
 
       return {
-        User: User
+        userAuth: userAuth,
+        userRegister: userRegister
       };
     }
   );

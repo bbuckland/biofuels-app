@@ -4,18 +4,21 @@ angular.module('biofuels', [
     'ngMaterial',
     'ui.router',
     'chart.js',
+    'md.data.table',
+    'biofuels.component.menu',
     'biofuels.core.resource',
     'biofuels.core.router',
     'biofuels.core.user',
-    'biofuels.sections.createSample',
     'biofuels.sections.createCustomer',
     'biofuels.sections.home',
-    'biofuels.sections.login'
+    'biofuels.sections.login',
+    'biofuels.sections.newBatch',
+    'biofuels.sections.samples'
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-      .accentPalette('blue-grey')
+      .primaryPalette('blue-grey')
+      .accentPalette('green')
       .backgroundPalette('grey');
   })
   .run(function ($log) {

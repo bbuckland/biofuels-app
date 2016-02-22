@@ -1,10 +1,16 @@
 'use strict';
 
-angular.module('biofuels.sections.home.controller', [])
+angular.module('biofuels.sections.home.controller', [
+  'ngStorage'
+])
   .controller('homeCtrl',
-  function ($log) {
+  function ($log,
+            $localStorage
+  ) {
     (function (vm) {
       $log.debug('This is from the home page');
+
+      vm.userProfile = $localStorage.userProfile;
       vm.labels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
       vm.data = [300, 500, 100];
 

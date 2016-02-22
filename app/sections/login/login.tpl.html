@@ -19,6 +19,12 @@
                 </md-input-container>
               </form>
             </div>
+            <!-- Form navigation -->
+            <p ng-class="{ 'form-success' : ctrl.formResponse,
+
+        'form-error' : ctrl.formError }">
+              {{ ctrl.formResponse || ctrl.formError }}
+            </p>
           </md-content>
         </md-tab-body>
       </md-tab>
@@ -53,6 +59,11 @@
                 </md-input-container>
               </form>
             </div>
+            <p ng-class="{ 'form-success' : ctrl.registerFormResponse,
+
+        'form-error' : ctrl.registerFormError }">
+              {{ ctrl.registerFormResponse || ctrl.registerFormError }}
+            </p>
           </md-content>
         </md-tab-body>
       </md-tab>
