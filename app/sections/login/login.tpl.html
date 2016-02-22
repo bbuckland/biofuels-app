@@ -2,7 +2,7 @@
   <div flex-gt-xs="50" flex-gt-sm="40" flex-gt-md="30">
   <md-card>
     <img ng-src="images/login-header-3.jpg" class="md-card-image" alt="image caption">
-    <md-tabs md-selected="data.selectedIndex" md-center-tabs md-dynamic-height md-stretch-tabs="always">
+    <md-tabs md-selected="ctrl.selectedTab" md-center-tabs md-dynamic-height md-stretch-tabs="always">
       <md-tab id="tab1">
         <md-tab-label>Login</md-tab-label>
         <md-tab-body>
@@ -11,51 +11,69 @@
               <form name="userForm">
                 <md-input-container class="md-block">
                   <label>Email</label>
-                  <input ng-model="loginCtrl.userLogin.email">
+                  <input ng-model="ctrl.userLogin.email" required>
                 </md-input-container>
                 <md-input-container class="md-block">
                   <label>Password</label>
-                  <input type="password" ng-model="loginCtrl.userLogin.password">
+                  <input type="password" ng-model="ctrl.userLogin.password" required>
                 </md-input-container>
               </form>
             </div>
+            <!-- Form navigation -->
+            <p ng-class="{ 'form-success' : ctrl.formResponse,
+
+        'form-error' : ctrl.formError }">
+              {{ ctrl.formResponse || ctrl.formError }}
+            </p>
           </md-content>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab3">
+      <md-tab id="tab2">
         <md-tab-label>Register</md-tab-label>
         <md-tab-body>
           <md-content layout-padding>
             <div>
-              <form name="userForm">
+              <form name="registerForm">
                 <md-input-container class="md-block">
                   <label>Full Name</label>
-                  <input ng-model="loginCtrl.userRegister.fullName" name="fullName" required md-maxlength="40">
-                  <div ng-messages="userForm.fullName.$error">
+                  <input ng-model="ctrl.userRegister.fullName" name="fullName" required md-maxlength="40">
+                  <div ng-messages="registerForm.fullName.$error">
                     <ng-message when="['required', 'maxlength']">This is required!</ng-message>
                   </div>
                 </md-input-container>
                 <md-input-container class="md-block">
                   <label>Liberty Email</label>
-                  <input type="email" ng-model="loginCtrl.userRegister.email" name="userEmail" ng-pattern="/^[\w.]+@liberty.edu$/" required>
-                  <div ng-messages="userForm.userEmail.$error" ng-messages-multiple >
+                  <input type="email" ng-model="ctrl.userRegister.email" name="userEmail" ng-pattern="/^[\w.]+@liberty.edu$/" required>
+                  <div ng-messages="registerForm.userEmail.$error" ng-messages-multiple >
                     <div ng-message="required">This is required!</div>
                     <div ng-message="pattern">You must have a liberty email</div>
                   </div>
                 </md-input-container>
                 <md-input-container class="md-block">
                   <label>Password</label>
-                  <input type="password" ng-model="loginCtrl.userRegister.password">
+                  <input type="password" name="password" ng-model="ctrl.userRegister.password" ng-pattern="/^[a-zA-Z]\w{5,20}$/">
+                  <div ng-messages="registerForm.password.$error" ng-messages-multiple >
+                    <div ng-message="required">This is required!</div>
+                    <div ng-message="pattern">You need a more complex password</div>
+                  </div>
                 </md-input-container>
               </form>
             </div>
+            <p ng-class="{ 'form-success' : ctrl.registerFormResponse,
+
+        'form-error' : ctrl.registerFormError }">
+              {{ ctrl.registerFormResponse || ctrl.registerFormError }}
+            </p>
           </md-content>
         </md-tab-body>
       </md-tab>
     </md-tabs>
     <md-card-actions layout="row" layout-align="end center">
-      <md-button class="md-fab" aria-label="Proceed" ng-click="ctrl.onClick()">
-        <md-icon class="material-icons">keyboard_arrow_right</md-icon>
+      <md-button class="md-raised md-primary" ng-show="ctrl.selectedTab === 0" aria-label="Proceed" ng-click="ctrl.loginUser()" ng-disabled="!userForm.$valid">
+        Login
+      </md-button>
+      <md-button class="md-raised md-primary"  ng-show="ctrl.selectedTab === 1" aria-label="Proceed" ng-click="ctrl.registerUser()" ng-disabled="!registerForm.$valid">
+        Register
       </md-button>
     </md-card-actions>
 

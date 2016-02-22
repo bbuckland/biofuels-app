@@ -1,0 +1,24 @@
+/* Form Error */
+.form-success,
+.form-error {
+  border-radius: 3px;
+  color: $white;
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding: 7px;
+  position: relative;
+  text-align: center;
+}
+
+.form-success {
+  background: $success;
+}
+
+.form-error {
+  background: $error;
+}

@@ -1,19 +1,22 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <h2>
-      <span>Biofuels - Home</span>
-    </h2>
+    <a>
+      <img class="menu__logo" src="images/bio-logo.svg">
+    </a>
 
-    <md-button class="md-raised" aria-label="Learn More" ng-click>
-      New Sample
+    <md-button aria-label="Home Page" ui-sref="home">
+      Home
     </md-button>
-    <md-button class="md-raised" aria-label="Learn More">
-      New GC Vial
+    <md-button aria-label="Samples Page" ui-sref="samples">
+      Samples
     </md-button>
-    <md-button class="md-raised" aria-label="Learn More">
-      New Reaction Vial
+    <md-button aria-label="Vials Page">
+      Vials
     </md-button>
     <span flex></span>
+    <md-button>
+      Hey, {{ctrl.userProfile.fullName}}
+    </md-button>
     <md-button class="md-raised" aria-label="Learn More">
       Logout
     </md-button>

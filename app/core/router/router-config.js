@@ -25,10 +25,17 @@ angular.module('biofuels.core.router.config', [
     });
 
     states.push({
-      name: ROUTES.CREATE_SAMPLE,
-      url: '/create-sample',
-      templateUrl: 'sections/create-sample/create-sample.tpl.html',
-      controller: 'createSampleCtrl as ctrl'
+      name: ROUTES.SAMPLES,
+      url: '/samples',
+      templateUrl: 'sections/samples/samples.tpl.html',
+      controller: 'samplesCtrl as ctrl'
+    });
+
+    states.push({
+      name: ROUTES.NEW_BATCH,
+      url: '/new-batch',
+      templateUrl: 'sections/samples/new-batch/new-batch.tpl.html',
+      controller: 'newBatchCtrl as ctrl'
     });
 
     states.push({
