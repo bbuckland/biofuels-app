@@ -45,6 +45,13 @@ angular.module('biofuels.core.router.config', [
       controller: 'createCustomerCtrl as ctrl'
     });
 
+    states.push({
+      name: ROUTES.VIALS,
+      url: '/vials',
+      templateUrl: 'sections/vials/vials.tpl.html',
+      controller: 'vialsCtrl as ctrl'
+    });
+
     /**
      * UI routes initialization
      */
