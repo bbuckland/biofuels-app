@@ -7,9 +7,9 @@ angular.module('biofuels.component.menu.directive', [
     'menu',
     function () {
       return {
-        restrict: 'E',
+        restrict: 'A',
         templateUrl: 'components/menu/menu.tpl.html',
-        controller: 'menuCtrl as ctrl'
+        controller: 'MenuCtrl as menuCtrl'
       };
     }
   );
