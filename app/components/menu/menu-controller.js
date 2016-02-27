@@ -4,7 +4,7 @@ angular.module('biofuels.component.menu.controller', [
     'ngStorage'
   ])
   .controller(
-    'menuCtrl',
+    'MenuCtrl',
     function ($localStorage) {
       (function (vm) {
         vm.userProfile = $localStorage.userProfile;

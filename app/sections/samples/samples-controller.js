@@ -1,8 +1,12 @@
 'use strict';
 
-angular.module('biofuels.sections.samples.controller', [])
+angular.module('biofuels.sections.samples.controller', [
+
+])
   .controller('samplesCtrl',
-    function ($log
+    function ($log,
+              $mdDialog,
+              $mdMedia
     ) {
       (function (vm) {
         $log.debug('This is from the samples page');
