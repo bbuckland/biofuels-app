@@ -28,7 +28,7 @@ angular.module('biofuels.core.customer.service', [
 
         var query = {};
 
-        return resourceService.customer.get(query).$promise.then(function (data) {
+        return resourceService.customerList.get(query).$promise.then(function (data) {
           $log.debug(data);
           return data;
         }).catch(function (err) {
