@@ -7,5 +7,6 @@ angular.module('biofuels.core.router.constants', [])
     'HOME': 'home',
     'LOGIN': 'login',
     'NEW_BATCH': 'newBatch',
-    'SAMPLES':'samples'
+    'SAMPLES':'samples',
+    'VIALS':'vials'
   });

@@ -13,7 +13,8 @@ angular.module('biofuels', [
     'biofuels.sections.home',
     'biofuels.sections.login',
     'biofuels.sections.newBatch',
-    'biofuels.sections.samples'
+    'biofuels.sections.samples',
+    'biofuels.sections.vials'
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')

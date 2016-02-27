@@ -1,0 +1,44 @@
+<div menu=""></div>
+<md-toolbar class="md-accent">
+  <div class="md-toolbar-tools">
+    <md-button class="" aria-label="Home Page" ui-sref="newVials">
+      New Vials
+    </md-button>
+    <md-button class="" aria-label="Samples Page">
+      Edit Vials
+    </md-button>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+  <md-table-container>
+    <table md-table md-row-select ng-model="ctrl.selected">
+      <thead md-head md-order="query.order" md-on-reorder="ctrl.onReorder">
+      <tr md-row>
+        <th md-column><span>Dessert (100g serving)</span></th>
+        <th md-column md-numeric><span>Calories</span></th>
+        <th md-column md-numeric>Fat (g)</th>
+        <th md-column md-numeric>Carbs (g)</th>
+        <th md-column md-numeric>Protein (g)</th>
+        <th md-column md-numeric>Sodium (mg)</th>
+        <th md-column md-numeric>Calcium (%)</th>
+        <th md-column md-numeric>Iron (%)</th>
+      </tr>
+      </thead>
+      <tbody md-body>
+      <tr md-row ng-repeat="dessert in ctrl.desserts" md-select="dessert" md-select-id="{{dessert}}" md-auto-select >
+        <td md-cell>{{dessert.name}}</td>
+        <td md-cell>{{dessert.calories}}</td>
+        <td md-cell>{{dessert.fat | number: 1}}</td>
+        <td md-cell>{{dessert.carbs}}</td>
+        <td md-cell>{{dessert.protein | number: 1}}</td>
+        <td md-cell>{{dessert.sodium}}</td>
+        <td md-cell>{{dessert.calcium}}</td>
+        <td md-cell>{{dessert.iron}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+
+
+  <md-table-pagination md-limit="ctrl.query.limit" md-page="ctrl.query.page" md-total="{{ctrl.desserts.count}}" md-on-paginate="onPaginate" md-page-select></md-table-pagination>
+</md-content>
