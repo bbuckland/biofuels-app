@@ -26,9 +26,30 @@ angular.module('biofuels.core.resource.service', [
         }
       });
 
+      var customerList = $resource(url + '/api/v1/customer/list', {}, {
+        'get': {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
+
+      var customerCreate = $resource(url + '/api/v1/customer/create', {}, {
+        'save': {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
+
+
       return {
         userAuth: userAuth,
-        userRegister: userRegister
+        userRegister: userRegister,
+        customerList: customerList,
+        customerCreate: customerCreate
       };
     }
   );

@@ -6,6 +6,7 @@ angular.module('biofuels', [
     'chart.js',
     'md.data.table',
     'biofuels.component.menu',
+    'biofuels.core.customer',
     'biofuels.core.resource',
     'biofuels.core.router',
     'biofuels.core.user',
