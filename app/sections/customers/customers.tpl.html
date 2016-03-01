@@ -14,19 +14,36 @@
     <table md-table md-row-select ng-model="ctrl.selected">
       <thead md-head md-order="query.order" md-on-reorder="ctrl.onReorder">
       <tr md-row>
+        <th md-column><span>ID</span></th>
         <th md-column><span>Customer Name</span></th>
-        <!--<th md-column md-numeric><span>Calories</span></th>-->
-        <!--<th md-column md-numeric>Fat (g)</th>-->
-        <!--<th md-column md-numeric>Carbs (g)</th>-->
-        <!--<th md-column md-numeric>Protein (g)</th>-->
-        <!--<th md-column md-numeric>Sodium (mg)</th>-->
-        <!--<th md-column md-numeric>Calcium (%)</th>-->
-        <!--<th md-column md-numeric>Iron (%)</th>-->
+        <th md-column><span>Customer Code</span></th>
+        <th md-column><span>Contact Name #1</span></th>
+        <th md-column><span>Contact Name #2</span></th>
+        <th md-column><span>Billing Name</span></th>
+        <th md-column><span>Address</span></th>
+        <th md-column><span>Address 2</span></th>
+        <th md-column><span>City</span></th>
+        <th md-column><span>State</span></th>
+        <th md-column><span>Postal Code</span></th>
+        <th md-column><span>Phone Number</span></th>
+        <th md-column><span>email</span></th>
       </tr>
       </thead>
       <tbody md-body>
       <tr md-row ng-repeat="customer in ctrl.customers" md-select="customer" md-select-id="{{customer}}" md-auto-select >
+        <td md-cell>{{customer.id}}</td>
         <td md-cell>{{customer.customer_name}}</td>
+        <td md-cell>{{customer.customer_code}}</td>
+        <td md-cell>{{customer.contact_name1}}</td>
+        <td md-cell>{{customer.contact_name2}}</td>
+        <td md-cell>{{customer.billing_name}}</td>
+        <td md-cell>{{customer.address_1}}</td>
+        <td md-cell>{{customer.address_2}}</td>
+        <td md-cell>{{customer.city}}</td>
+        <td md-cell>{{customer.state}}</td>
+        <td md-cell>{{customer.postal_code}}</td>
+        <td md-cell>{{customer.phone_number}}</td>
+        <td md-cell>{{customer.email}}</td>
       </tr>
       </tbody>
     </table>
