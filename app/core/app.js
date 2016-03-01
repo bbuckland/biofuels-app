@@ -11,6 +11,7 @@ angular.module('biofuels', [
     'biofuels.core.router',
     'biofuels.core.user',
     'biofuels.sections.createCustomer',
+    'biofuels.sections.customers',
     'biofuels.sections.home',
     'biofuels.sections.login',
     'biofuels.sections.newBatch',

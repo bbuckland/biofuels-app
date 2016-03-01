@@ -9,6 +9,20 @@ angular.module('biofuels.core.router.config', [
   function routerConfig(ROUTES, $stateProvider, $urlRouterProvider) {
     var states = [];
 
+    states.push({
+      name: ROUTES.CREATE_CUSTOMER,
+      url: '/create-customer',
+      templateUrl: 'sections/customers/create-customer/create-customer.tpl.html',
+      controller: 'createCustomerCtrl as ctrl'
+    });
+
+    states.push({
+      name: ROUTES.CUSTOMERS,
+      url: '/customers',
+      templateUrl: 'sections/customers/customers.tpl.html',
+      controller: 'customersCtrl as ctrl'
+    });
+
     /* Home screen */
     states.push({
       name: ROUTES.HOME,
@@ -25,13 +39,6 @@ angular.module('biofuels.core.router.config', [
     });
 
     states.push({
-      name: ROUTES.SAMPLES,
-      url: '/samples',
-      templateUrl: 'sections/samples/samples.tpl.html',
-      controller: 'samplesCtrl as ctrl'
-    });
-
-    states.push({
       name: ROUTES.NEW_BATCH,
       url: '/new-batch',
       templateUrl: 'sections/samples/new-batch/new-batch.tpl.html',
@@ -39,10 +46,10 @@ angular.module('biofuels.core.router.config', [
     });
 
     states.push({
-      name: ROUTES.CREATE_CUSTOMER,
-      url: '/create-customer',
-      templateUrl: 'sections/create-customer/create-customer.tpl.html',
-      controller: 'createCustomerCtrl as ctrl'
+      name: ROUTES.SAMPLES,
+      url: '/samples',
+      templateUrl: 'sections/samples/samples.tpl.html',
+      controller: 'samplesCtrl as ctrl'
     });
 
     states.push({
