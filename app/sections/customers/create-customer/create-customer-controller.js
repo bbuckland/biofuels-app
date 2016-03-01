@@ -32,7 +32,7 @@ angular.module('biofuels.sections.createCustomer.controller', [])
 
           vm.formError = '';
           vm.formResponse = '';
-          customerService.createCustomer(2, vm.customerData.name, vm.customerData.code, vm.customerData.contactName1, vm.customerData.contactName2, vm.customerData.billingName,
+          customerService.createCustomer(vm.customerData.name, vm.customerData.code, vm.customerData.contactName1, vm.customerData.contactName2, vm.customerData.billingName,
                                          vm.customerData.address, vm.customerData.address2, vm.customerData.city, vm.customerData.state,
                                          Number(vm.customerData.postalCode), vm.customerData.phoneNumber, vm.customerData.email).then(function (data) {
             vm.formResponse = 'Successfully made customer!';

@@ -9,11 +9,10 @@ angular.module('biofuels.core.customer.service', [
               resourceService,
               $q
     ) {
-      function createCustomer (ID, custName, custCode, contactName1, contactName2, billingName, address1, address2, city, state, postalCode, phoneNumber, email) {
+      function createCustomer (custName, custCode, contactName1, contactName2, billingName, address1, address2, city, state, postalCode, phoneNumber, email) {
         $log.debug('Creating customer');
 
         var payload = {
-          id: ID,
           customer_name: custName,
           customer_code: custCode,
           contact_name1: contactName1,
