@@ -1,0 +1,94 @@
+<div menu=""></div>
+<div layout="row" layout-align="center">
+  <div flex="50">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Create Vial</span>
+        </md-card-title-text>
+      </md-card-title>
+      <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+          <div>
+            <form name="vialForm">
+              <div layout-gt-xs="row">
+                <md-input-container>
+                  <label>Vial Type</label>
+                  <md-select ng-model="ctrl.vialData.vialType">
+                    <md-option ng-repeat="vialType in ctrl.vialTypes" value="{{vialType}}">{{vialType}}</md-option>
+                  </md-select>
+                </md-input-container>
+                <md-datepicker ng-model="ctrl.vialData.vialDate" md-placeholder="Enter date" ng-show="ctrl.vialData.vialType"></md-datepicker>
+              </div>
+              <div layout-gt-xs="row" ng-show="ctrl.vialData.vialType == 'Reaction'" fle>
+                <md-input-container>
+                  <label>Mass of Fatty Acid</label>
+                  <input ng-model="ctrl.vialData.mass_fa">
+                </md-input-container>
+                <md-input-container>
+                  <label>Concentration of C-15 FA ISTD</label>
+                  <input ng-model="ctrl.vialData.concentration_ISTD">
+                </md-input-container>
+              </div>
+              <div layout-gt-xs="row" ng-show="ctrl.vialData.vialType == 'GC'" fle>
+                <md-input-container>
+                  <label>Mass of FAME ISTD</label>
+                  <input ng-model="ctrl.vialData.mass_fa">
+                </md-input-container>
+                <md-input-container>
+                  <label>Concentration of C-13 ISTD</label>
+                  <input ng-model="ctrl.vialData.concentration_ISTD">
+                </md-input-container>
+                <md-input-container>
+                  <label>Concentration of C-19 ISTD</label>
+                  <input ng-model="ctrl.vialData.concentration_ISTD2">
+                </md-input-container>
+              </div>
+              <div layout-gt-xs="row" ng-show="ctrl.vialData.vialType == 'Spiked'" fle>
+                <md-input-container>
+                  <label>Mass of C-15 ISTD</label>
+                  <input ng-model="ctrl.vialData.mass_ISTD">
+                </md-input-container>
+                <md-input-container>
+                  <label>Mass of Sample Added</label>
+                  <input ng-model="ctrl.vialData.sampleMass">
+                </md-input-container>
+                <md-input-container>
+                  <label>GC Vial ID</label>
+                  <input ng-model="ctrl.vialData.gcVialID">
+                </md-input-container>
+              </div>
+
+            </form>
+          </div>
+        </md-content>
+        <md-card-actions layout="column" layout-align="end-end">
+          <md-button class="md-raised md-primary" ng-click="ctrl.addToQueue()" ng-disabled="!(ctrl.vialData.vialType && ctrl.vialData.vialDate)">Add To Queue</md-button>
+        </md-card-actions>
+      </div>
+    </md-card>
+  </div>
+  <div flex="25" ng-show="ctrl.vials.length > 0">
+    <md-card >
+      <md-card-title>
+        <md-card-title-text>
+        <span class="md-headline">Vials Queue</span>
+        </md-card-title-text>
+      </md-card-title>
+      <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+          <div>
+            <md-list-item ng-repeat="vial in ctrl.vials track by $index">
+              <p> {{ vial.vialType }} </p>
+              <md-button class="md-raised" ng-click="ctrl.removeFromQueue(vial)">DELETE</md-button>
+            </md-list-item>
+          </div>
+        </md-content>
+        <md-card-actions layout="column" layout-align="center-center">
+          <md-button class="md-raised md-primary" ng-click="ctrl.saveVials()">Save Vials</md-button>
+        </md-card-actions>
+      </div>
+    </md-card>
+  </div>
+</div>
+
