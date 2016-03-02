@@ -44,12 +44,32 @@ angular.module('biofuels.core.resource.service', [
         }
       });
 
+      var vialList = $resource(url + '/api/v1/vial/list', {}, {
+        'get': {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
+
+      var vialCreate = $resource(url + '/api/v1/vial/create', {}, {
+        'save': {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      });
+
 
       return {
         userAuth: userAuth,
         userRegister: userRegister,
         customerList: customerList,
-        customerCreate: customerCreate
+        customerCreate: customerCreate,
+        vialList: vialList,
+        vialCreate: vialCreate
       };
     }
   );

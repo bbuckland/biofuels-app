@@ -4,6 +4,7 @@ angular.module('biofuels.core.router.constants', [])
   .constant(
   'ROUTES', {
     'CREATE_CUSTOMER':'createCustomer',
+    'CREATE_VIALS':'createVials',
     'CUSTOMERS':'customers',
     'HOME': 'home',
     'LOGIN': 'login',

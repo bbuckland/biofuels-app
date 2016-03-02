@@ -19,12 +19,16 @@ angular.module('biofuels.sections.createCustomer.controller', [])
         });
 
         vm.addToPOList = function (poNumber) {
-          if (!vm.customerData.PONumbers.includes(poNumber) && poNumber)
+          if (!vm.customerData.PONumbers.includes(poNumber) && poNumber) {
             vm.customerData.PONumbers.push(poNumber);
+          }
         };
 
         vm.removeFromPOList = function (poNumber) {
-          vm.customerData.PONumbers.pop(poNumber);
+          var index = vm.customerData.PONumbers.indexOf(poNumber);
+          if (index > -1) {
+            vm.customerData.PONumbers.splice(index, 1);
+          }
         };
 
         vm.createCustomer = function () {

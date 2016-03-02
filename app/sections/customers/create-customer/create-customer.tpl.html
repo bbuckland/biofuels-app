@@ -93,7 +93,7 @@
               <div>
                 <md-list-item ng-repeat="poNumber in ctrl.customerData.PONumbers track by $index">
                   <p> {{ poNumber }} </p>
-                  <md-button class="md-raised" ng-click="ctrl.removeFromPOList(1234)">DELETE</md-button>
+                  <md-button class="md-raised" ng-click="ctrl.removeFromPOList(poNumber)">DELETE</md-button>
                 </md-list-item>
               </div>
             </form>

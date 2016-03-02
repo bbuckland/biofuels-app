@@ -53,6 +53,13 @@ angular.module('biofuels.core.router.config', [
     });
 
     states.push({
+      name: ROUTES.CREATE_VIALS,
+      url: '/create-vials',
+      templateUrl: 'sections/vials/create-vials/create-vials.tpl.html',
+      controller: 'createVialsCtrl as ctrl'
+    });
+
+    states.push({
       name: ROUTES.VIALS,
       url: '/vials',
       templateUrl: 'sections/vials/vials.tpl.html',
